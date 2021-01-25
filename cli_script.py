@@ -8,7 +8,7 @@ parser.add_argument("-s", "--script", help="script containing the video message"
 # optional argument
 parser.add_argument("-b", "--background", help="background of the video", required=True)
 # optional argument
-parser.add_argument("-d", "--data", help="path to csv file with data")
+parser.add_argument("-d", "--data", help="path to csv file with data", required=True)
 # mandatory argument
 parser.add_argument("-o", "--output", help="output path for saving the video", required=True)
 
