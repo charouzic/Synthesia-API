@@ -6,11 +6,11 @@ import time
 API_ENDPOINT = "https://api.synthesia.io/v1/videos"
 
 API_KEY = "f24e4df1a2aedb9445a4a93ff6100b5a"
+script = "Hello, World! This is my first synthetic video, made with the Synthesia API!"
 
-def video_id():
+def video_id(script):
 
-    source_code = '{ "test": true, "input": [{ "script": "Hello, World! This is my first synthetic video, made with the Synthesia API!", "actor": "anna_costume1_cameraA", "background": "green_screen"}] }'
-
+    source_code = ' {"test": true, "input": [{ "script": "%s", "actor": "anna_costume1_cameraA", "background": "green_screen"}] }'%script
     header = {'authorization': API_KEY,
               'content-type': 'application/json'}
 
@@ -43,4 +43,4 @@ def download_video(download_url, output_path, file_name):
         print("File succesfully downloaded: %s"%export_path)
 
 # running the function
-download_video(video_url(video_id()), "videos", str(1))
+download_video(video_url(video_id(script)), "videos", str(1))
