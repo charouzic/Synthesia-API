@@ -27,7 +27,7 @@ of the video, and use csv file for setting up parameters in the script (each lin
 * checks that the image has correct resolution 1920x1080
 * fills in the parameters in script from the csv file
 * changes the background
-* the API key and APII endpoint can be added/editted in the config.json file without changing the code
+* the API key and API endpoint can be added/editted in the config.json file without changing the code
 
 
 ## Setup
