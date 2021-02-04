@@ -60,7 +60,7 @@ def sripts_from_csv(path, script):
 
 def video_id(script, api_key, api_endpint):
 
-    source_code = ' {"test": true, "input": [{ "script": "%s", "actor": "anna_costume1_cameraA", "background": "green_screen"}] }'%script
+    source_code = ' {"test": false, "input": [{ "script": "%s", "actor": "anna_costume1_cameraA", "background": "green_screen"}] }'%script
     header = {'authorization': api_key,
               'content-type': 'application/json'}
 
@@ -103,7 +103,7 @@ def change_background(background_img, file_path, file_name):
     # 1. change the background
     print("Changing background...")
     # the color filter is not the best --> place for improvement
-    subprocess.call(f'ffmpeg -i {background_img} -i {video_path} -filter_complex "[1:v]chromakey=0x3BBD1E:0.1:0.2[ckout];[0:v][ckout]overlay[o]" -map [o] -map 1:a {output_file}', shell=True)
+    subprocess.call(f'ffmpeg -i {background_img} -i {video_path} -filter_complex "[1:v]chromakey=0x3BBD1E:0.1:0.0[ckout];[0:v][ckout]overlay[o]" -map [o] -map 1:a {output_file}', shell=True)
 
     # 2. delete the original video
     subprocess.call(f"rm {video_path}", shell=True)
